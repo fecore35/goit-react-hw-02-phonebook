@@ -45,6 +45,14 @@ class App extends Component {
     );
   };
 
+  deleteContact = (event) => {
+    this.setState((prevState) => ({
+      contacts: prevState.contacts.filter(({ id }) => {
+        return id !== event.target.dataset.id;
+      }),
+    }));
+  };
+
   render() {
     const { filter } = this.state;
     const contactsList = this.visibleContacts();
@@ -56,7 +64,7 @@ class App extends Component {
 
         <h2>Contacts</h2>
         <Filter filter={filter} handlerChange={this.handlerChange} />
-        <ContactList list={contactsList} />
+        <ContactList list={contactsList} deleteContact={this.deleteContact} />
       </div>
     );
   }
