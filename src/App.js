@@ -22,15 +22,26 @@ class App extends Component {
   };
 
   onSaveContact = (newContact) => {
+    const { contacts } = this.state;
+    const newContactName = newContact.name.toUpperCase();
+
+    const knownContact = contacts.find(
+      ({ name }) => name.toUpperCase() === newContactName
+    );
+
+    if (knownContact) {
+      return alert(`${newContact.name} is already in contacts.`);
+    }
+
     this.setState((prevState) => ({
       contacts: [newContact, ...prevState.contacts],
     }));
   };
 
   visibleContacts = () => {
-    const seach = this.state.filter.toUpperCase();
+    const search = this.state.filter.toUpperCase();
     return this.state.contacts.filter((contact) =>
-      contact.name.toUpperCase().includes(seach)
+      contact.name.toUpperCase().includes(search)
     );
   };
 
