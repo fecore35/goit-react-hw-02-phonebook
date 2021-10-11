@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import ContactForm from "./components/ContactForm/ContactForm";
+import Filter from "./components/Filter/Filter";
 // import PropTypes from 'prop-types'
 
 class App extends Component {
@@ -43,16 +44,7 @@ class App extends Component {
         <ul className="">
           <h2>Contacts</h2>
 
-          <p>Find contact by name</p>
-          <input
-            type="text"
-            name="filter"
-            pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
-            title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
-            value={filter}
-            onChange={this.handlerChange}
-          />
-
+          <Filter filter={filter} handlerChange={this.handlerChange} />
           {contactsList.map(({ id, name, number }) => {
             return (
               <li key={id}>
