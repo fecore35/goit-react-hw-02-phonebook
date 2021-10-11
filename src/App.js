@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import ContactForm from "./components/ContactForm/ContactForm";
 import Filter from "./components/Filter/Filter";
+import ContactList from "./components/ContactList/ContactList";
 // import PropTypes from 'prop-types'
 
 class App extends Component {
@@ -38,21 +39,13 @@ class App extends Component {
     const contactsList = this.visibleContacts();
 
     return (
-      <div className="App">
+      <div>
+        <h1>Phonebook</h1>
         <ContactForm onSave={this.onSaveContact} />
 
-        <ul className="">
-          <h2>Contacts</h2>
-
-          <Filter filter={filter} handlerChange={this.handlerChange} />
-          {contactsList.map(({ id, name, number }) => {
-            return (
-              <li key={id}>
-                {name}: {number}
-              </li>
-            );
-          })}
-        </ul>
+        <h2>Contacts</h2>
+        <Filter filter={filter} handlerChange={this.handlerChange} />
+        <ContactList list={contactsList} />
       </div>
     );
   }
