@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import ContactForm from "./components/ContactForm/ContactForm";
 import Filter from "./components/Filter/Filter";
 import ContactList from "./components/ContactList/ContactList";
-// import PropTypes from 'prop-types'
 
 class App extends Component {
   state = {
