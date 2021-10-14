@@ -69,7 +69,7 @@ class ContactForm extends Component {
 }
 
 ContactForm.propTypes = {
-  newContact: PropTypes.func.isRequired,
+  onSave: PropTypes.func.isRequired,
 };
 
 export default ContactForm;
