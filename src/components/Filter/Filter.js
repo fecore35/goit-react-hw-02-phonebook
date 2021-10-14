@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function Filter({ filter, handlerChange }) {
   return (
     <>
@@ -13,5 +15,10 @@ function Filter({ filter, handlerChange }) {
     </>
   );
 }
+
+Filter.propTypes = {
+  filter: PropTypes.string,
+  handlerChange: PropTypes.func,
+};
 
 export default Filter;
