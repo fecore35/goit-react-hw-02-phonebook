@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 function ContactList({ list, deleteContact }) {
   return (
     <ul className="">
@@ -14,5 +16,10 @@ function ContactList({ list, deleteContact }) {
     </ul>
   );
 }
+
+ContactList.propTypes = {
+  list: PropTypes.arrayOf(PropTypes.object),
+  deleteContact: PropTypes.func,
+};
 
 export default ContactList;
