@@ -59,7 +59,7 @@ class App extends Component {
     const contactsList = this.visibleContacts();
 
     return (
-      <div>
+      <div className="container">
         <h1>Phonebook</h1>
         <ContactForm onSave={this.onSaveContact} />
 
