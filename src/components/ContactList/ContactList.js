@@ -1,14 +1,24 @@
 import PropTypes from "prop-types";
+import { IoCloseCircleSharp } from "react-icons/io5";
+import s from "./ContactList.module.css";
 
 function ContactList({ list, deleteContact }) {
   return (
-    <ul className="">
+    <ul className={s.list}>
       {list.map(({ id, name, number }) => {
+        const tel = `tel:${number}`.replaceAll("-", "");
         return (
-          <li key={id}>
-            {name}: {number}
-            <button type="button" data-id={id} onClick={deleteContact}>
-              Delete
+          <li className={s.item} key={id}>
+            <p>
+              {name}: <a href={tel}>{number}</a>
+            </p>
+            <button
+              className={s.button}
+              type="button"
+              data-id={id}
+              onClick={deleteContact}
+            >
+              <IoCloseCircleSharp />
             </button>
           </li>
         );

@@ -45,9 +45,11 @@ class App extends Component {
   };
 
   deleteContact = (event) => {
+    let deleteID = event.currentTarget.dataset.id;
+
     this.setState((prevState) => ({
       contacts: prevState.contacts.filter(({ id }) => {
-        return id !== event.target.dataset.id;
+        return id !== deleteID;
       }),
     }));
   };
