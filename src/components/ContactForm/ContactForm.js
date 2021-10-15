@@ -1,6 +1,7 @@
 import { Component } from "react";
 import { v4 as uuidv4 } from "uuid";
 import PropTypes from "prop-types";
+import s from "./ContactForm.module.css";
 
 class ContactForm extends Component {
   state = {
@@ -35,11 +36,12 @@ class ContactForm extends Component {
     const { name, number } = this.state;
 
     return (
-      <form onSubmit={this.onSaveContact}>
-        <label htmlFor="">
+      <form className={s.form} onSubmit={this.onSaveContact}>
+        <label className={s.label}>
           Name
           <input
             type="text"
+            className={s.input}
             name="name"
             pattern="^[a-zA-Zа-яА-Я]+(([' -][a-zA-Zа-яА-Я ])?[a-zA-Zа-яА-Я]*)*$"
             title="Имя может состоять только из букв, апострофа, тире и пробелов. Например Adrian, Jacob Mercer, Charles de Batz de Castelmore d'Artagnan и т. п."
@@ -49,10 +51,11 @@ class ContactForm extends Component {
           />
         </label>
 
-        <label htmlFor="">
+        <label className={s.label}>
           Number
           <input
             type="tel"
+            className={s.input}
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
             title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
@@ -62,7 +65,9 @@ class ContactForm extends Component {
           />
         </label>
 
-        <button type="submit">Add contact</button>
+        <button className={s.button} type="submit">
+          Add contact
+        </button>
       </form>
     );
   }
